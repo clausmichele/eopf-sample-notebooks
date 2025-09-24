@@ -63,9 +63,13 @@ const plugin = {
         const encoded = encodeURIComponent(gitpull_next);
         const spawn_next = "/hub/spawn?next=" + encoded
         var auto_start_extra = "%23fancy-forms-config%3D%7B%22default_url%22%3A%22lab%22%2C%22default_url%3Aunlisted_choice%22%3A%22%22%2C%22image%22%3A%22base%22%2C%22image%3Aunlisted_choice%22%3A%22%22%2C%20%22autoStart%22%3A%22true%22%7D"
+        console.log(auto_start_extra);
         if (notebookPath.includes("GDAL")) {
             auto_start_extra = "%23fancy-forms-config%3D%7B%2profile%22%3A%22choose-your-environment%22%2C%22image%22%3A%22unlisted_choice%22%2C%22image%3Aunlisted_choice%22%3A%22clausmichele%2Feopf-zarr-driver%3Alatest%22%2C+%22autoStart%22%3A%22true%22%7D"
         }
+        console.log(notebookPath);
+        console.log(notebookPath.includes("GDAL"));
+        console.log(auto_start_extra);
         const jupyterHubUrl = "https://jupyterhub.user.eopf.eodc.eu/hub/login?next=" + encodeURIComponent(spawn_next) + auto_start_extra
 
         // Get style options

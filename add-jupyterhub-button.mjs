@@ -65,15 +65,16 @@ const plugin = {
         var auto_start_extra = "%23fancy-forms-config%3D%7B%22default_url%22%3A%22lab%22%2C%22default_url%3Aunlisted_choice%22%3A%22%22%2C%22image%22%3A%22base%22%2C%22image%3Aunlisted_choice%22%3A%22%22%2C%20%22autoStart%22%3A%22true%22%7D"
         // console.log(auto_start_extra);
         if (notebookPath.includes("GDAL")) {
-            var auto_start_extra = "%23fancy-forms-config%3D%7B%2profile%22%3A%22choose-your-environment%22%2C%22image%22%3A%22unlisted_choice%22%2C%22image%3Aunlisted_choice%22%3A%22clausmichele%2Feopf-zarr-driver%3Alatest%22%2C+%22autoStart%22%3A%22true%22%7D"
             console.log("GDAL NOTEBOOK HERE +++++++++++++++++");
-            console.log(auto_start_extra);
+            const jupyterHubUrl = "https://jupyterhub.user.eopf.eodc.eu/hub/login?next=" + encodeURIComponent(spawn_next) + "%23fancy-forms-config%3D%7B%2profile%22%3A%22choose-your-environment%22%2C%22image%22%3A%22unlisted_choice%22%2C%22image%3Aunlisted_choice%22%3A%22clausmichele%2Feopf-zarr-driver%3Alatest%22%2C+%22autoStart%22%3A%22true%22%7D"
+            console.log(jupyterHubUrl)
         }
-        console.log(auto_start_extra);
+        else {
+          const jupyterHubUrl = "https://jupyterhub.user.eopf.eodc.eu/hub/login?next=" + encodeURIComponent(spawn_next) + auto_start_extra
+        }
         // console.log(notebookPath.includes("GDAL"));
         // console.log(auto_start_extra);
         // const auto_start_extra_ = auto_start_extra
-        const jupyterHubUrl = "https://jupyterhub.user.eopf.eodc.eu/hub/login?next=" + encodeURIComponent(spawn_next) + auto_start_extra
 
         // Get style options
         const isLarge = data.options?.style === "large";
